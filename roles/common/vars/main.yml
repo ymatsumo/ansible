@@ -1,0 +1,11 @@
+---
+users:
+  - {
+      name: 'ymatsumo',
+      uid: 20001,
+      group: 'users',
+      shell: '/bin/bash',
+      password: '$1$ByQYJ6g.$OZt8pjOR/3RBm0shbtZvy.',
+      key: "{{lookup('file', 'roles/common/files/public_keys/ymatsumo.pub')}}",
+      state: 'present'
+    }
