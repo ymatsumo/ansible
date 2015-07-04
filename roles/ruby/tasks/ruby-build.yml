@@ -1,0 +1,6 @@
+---
+- name: install ruby-build
+  sudo_user: "{{setup_user}}"
+  git: repo=https://github.com/sstephenson/ruby-build.git dest=~/.rbenv/plugins/ruby-build
+  tags:
+    - ruby-build

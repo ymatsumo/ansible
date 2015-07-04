@@ -1,0 +1,22 @@
+---
+- name: check ruby rbenv installed
+  sudo_user: "{{setup_user}}"
+  shell: bash -lc "rbenv versions | grep {{ruby_version}} | tr '*' ' ' | sed -e 's/\s\+//' | cut -f1 -d' '"
+  register: ruby_installed
+  ignore_errors: yes
+  tags:
+    - ruby-install
+
+- name: rbenv install {{ruby_version}}
+  sudo_user: "{{setup_user}}"
+  shell: bash -lc "rbenv install {{ruby_version}}"
+  when: ruby_installed.stdout != ruby_version
+  tags:
+    - ruby-install
+
+- name: rbenv global {{ruby_version}}
+  sudo_user: "{{setup_user}}"
+  shell: bash -lc "rbenv global  {{ruby_version}}"
+  when: ruby_installed.stdout != ruby_version
+  tags:
+    - ruby-install

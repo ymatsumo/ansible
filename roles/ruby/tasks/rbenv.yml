@@ -1,0 +1,10 @@
+---
+- name: install rbenv
+  sudo_user: "{{setup_user}}"
+  git: repo=https://github.com/sstephenson/rbenv.git dest=~/.rbenv
+  tags:
+    - rbenv
+
+- name: init rbenv
+  template: src=rbenv.sh dest=/etc/profile.d/rbenv.sh owner=root group=root mode=0755
+    - rbenv

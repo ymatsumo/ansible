@@ -1,0 +1,6 @@
+---
+- name: gem install rails {{rails_version}}
+  sudo_user: "{{setup_user}}"
+  gem: name=rails version={{rails_version}} executable=~/.rbenv/shims/gem user_install=False
+  tags:
+    - rails

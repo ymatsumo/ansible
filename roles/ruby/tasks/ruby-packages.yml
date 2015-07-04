@@ -1,0 +1,9 @@
+---
+- name: install ruby packages
+  apt: name={{item}} update_cache=yes
+  with_items:
+    - build-essential
+    - libssl-dev
+    - libsqlite3-dev
+    - nodejs
+  tags: ruby-packages
