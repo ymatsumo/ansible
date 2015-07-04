@@ -4,5 +4,9 @@
   with_items:
     - zsh
     - vim
+    - tree
+    - gcc
+    - make
+    - git
     - tcpdump
   tags: common-packages
